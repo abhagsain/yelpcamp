@@ -17,7 +17,6 @@ const session = require('express-session');
 //     useNewUrlParser: true
 //   }
 // );
-const PORT = process.env.PORT | 3000;
 mongoose.connect(
   'mongodb://abhagsain:password13@ds227243.mlab.com:27243/abhagsain_camping', {
     useNewUrlParser: true

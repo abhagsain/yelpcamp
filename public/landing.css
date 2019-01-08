@@ -11,6 +11,8 @@ body {
 
 #landing-header h1 {
     color: #fff;
+    /* font-size: 80px; */
+    font-size: 6rem;
 }
 
 .slideshow {
@@ -87,6 +89,8 @@ body {
     background: #fff;
     color: black;
     font-family: Roboto;
+    font-size: 2.8rem;
+    border-radius: 23px;
 
 }
 
@@ -95,4 +99,8 @@ body {
     color: black;
     font-family: Roboto;
 
+}
+
+.content {
+    font-size: 28px;
 }
