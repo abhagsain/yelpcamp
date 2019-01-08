@@ -1,0 +1,24 @@
+<% include ./partials/header%>
+<div class="container">
+    <div class="card m-auto bg-light" id="user-login">
+        <div class="card-body">
+            <h5 class="card-title">Login</h5>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" class="form-control" type="text" value="hitman" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="passport">Password</label>
+                    <input id="passport" name="password" value="a" class="form-control" type="password" placeholder="Password">
+                </div>
+                <div>
+
+                    <button type="submit" class="btn btn-primary m-auto btn-block">Login</button>
+                </div>
+            </form>
+            <p class="mt-2">New User? <a href="/register">Sign Up</a></p>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer%>

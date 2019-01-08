@@ -1,0 +1,9 @@
+.card-body img {
+    width: 100%;
+}
+
+#user-register,
+#user-login {
+    background: red;
+    width: 350px;
+}

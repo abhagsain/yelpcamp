@@ -1,0 +1,62 @@
+<%include ../partials/header%>
+<div class="container">
+  <div class="content">
+    <div class="row">
+
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8">
+        <div class="card my-3">
+          <div class="card-body p-0">
+            <img src="<%=camp.url%>" class="w-100 h-100 card-img-top" alt="" />
+            <div class="inner-content p-3">
+              <div>
+
+                <h5 class="card-title">
+                  <%=camp.name %>
+                </h5>
+
+
+              </div>
+              <p class="card-text mb-0">
+                <%=camp.description%>
+              </p>
+              <br>
+              <div class="d-flex">
+                <% if(user && user.username === camp.createdBy.username){%>
+                <a class="btn btn-outline-dark" href="/campgrounds/<%=camp._id%>/edit">Edit</a>
+                <form action="/campgrounds/<%= camp._id %>/?_method=DELETE" method="post">
+                  <button class="btn btn-outline-danger ml-2">Delete</button>
+                </form>
+                <%}%>
+                <span class="ml-auto bg-light text-dark px-2
+                py-2 rounded ">
+                  <em>
+                    Submitted by-
+                    <%=camp.createdBy.username%></span>
+                </em>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <h4>Comments</h4>
+        <% camp.comment.forEach(comment=>{ %>
+        <ul class="list-group">
+          <li class="list-group-item w-md-50 my-2 bg-light">
+            <% if(comment.text !== null){%>
+            <h5>
+              <%=comment.author.username%>
+            </h5>
+            <%=comment.text%>
+            <%}%>
+          </li>
+        </ul>
+        <%}) %>
+        <p>
+          <a href="<%=camp._id%>/comments/new" class="btn btn-success my-3">Add a comment</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<%include ../partials/footer%>

@@ -1,0 +1,40 @@
+<%include ../partials/header%>
+<div class="container">
+    <div class="jumbotron">
+        <h1>
+            <% if (user){%>
+            <%=user.username.substring(0,1).toUpperCase() + user.username.substring(1)%>,
+            <%}%>
+            Welcome to Yelp Camp
+        </h1>
+
+        <p class="lead">To us, camping is all about finding those extra-special places to camp. But whatever you're
+            looking for, as long as you favour the characterful rather than the commercial, smaller rather than larger
+            sites, and value location or views over pristine facilities, then you're in the right place for discovering
+            the very best campsites in the UK, France and a growing list of other European countries.</p>
+        <p><a href="/campgrounds/new" class="btn btn-primary">Add a campground</a></p>
+        <hr class="my-4">
+    </div>
+    <div class="row">
+        <%campgrounds.forEach(camp=>{ %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card m-2">
+                <div class="card-body p-0">
+                    <img src="<%= camp.url %>" class="card-img-top">
+                    <div class="p-2">
+
+                        <h5 class="card-title my-2">
+                            <%=camp.name%>
+                        </h5>
+                        <p class="card-text">
+                            <%=camp.description.substring(0,50)%>...
+                        </p>
+                        <a href="/campgrounds/<%=camp._id%>" class="btn btn-info d-block">Know More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%});%>
+    </div>
+</div>
+<%include ../partials/footer%>
