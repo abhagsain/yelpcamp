@@ -11,11 +11,13 @@ const campgroundRoutes = require('./routers/campgrounds');
 const commentRoutes = require('./routers/comments');
 const connectFlash = require('connect-flash');
 const methodOverride = require('method-override');
+const session = require('express-session');
 // mongoose.connect(
 //   'mongodb://localhost:27017/yelp_camp', {
 //     useNewUrlParser: true
 //   }
 // );
+const PORT = process.env.PORT | 3000;
 mongoose.connect(
   'mongodb://abhagsain:password13@ds227243.mlab.com:27243/abhagsain_camping', {
     useNewUrlParser: true
@@ -23,13 +25,16 @@ mongoose.connect(
 );
 app.use(connectFlash());
 // -----------------------------Express-session----------------------
-app.use(
-  require('express-session')({
-    secret: 'NO ONE CAN EVER HACK ME!',
-    resave: true,
-    saveUninitialized: true
-  })
-);
+const MongoStore = require('connect-mongo')(session);
+
+app.use(session({
+  secret: 'something special',
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  }),
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use(methodOverride('_method'));
 // ------------------------------Passport Session--------------------
@@ -69,6 +74,6 @@ app.use(commentRoutes);
 app.get('*', (req, res) => {
   res.render('notfound');
 });
-app.listen(81, () => {
+app.listen(PORT, process.env.IP, () => {
   console.log('Server started!');
 });
