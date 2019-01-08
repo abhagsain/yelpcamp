@@ -3,6 +3,9 @@ const express = require('express');
 
 const app = express();
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config();
 const passport = require('passport');
 const User = require('./models/user');
 const localStrategy = require('passport-local');
@@ -12,13 +15,10 @@ const commentRoutes = require('./routers/comments');
 const connectFlash = require('connect-flash');
 const methodOverride = require('method-override');
 const session = require('express-session');
-// mongoose.connect(
-//   'mongodb://localhost:27017/yelp_camp', {
-//     useNewUrlParser: true
-//   }
-// );
+
 mongoose.connect(
-  'mongodb://abhagsain:password13@ds227243.mlab.com:27243/abhagsain_camping', {
+  process.env.DATABASEURL,  
+  {
     useNewUrlParser: true
   }
 );
@@ -26,14 +26,16 @@ app.use(connectFlash());
 // -----------------------------Express-session----------------------
 const MongoStore = require('connect-mongo')(session);
 
-app.use(session({
-  secret: 'something special',
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection
-  }),
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  session({
+    secret: 'something special',
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    }),
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 app.use(methodOverride('_method'));
 // ------------------------------Passport Session--------------------
