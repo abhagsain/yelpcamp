@@ -4,5 +4,9 @@ node_modules
 *.log
 diagnostic.data
 seed.js
+<<<<<<< HEAD
 data
 journal
+=======
+website screenshot.jpg
+>>>>>>> imp_files
