@@ -7,6 +7,8 @@ A Node. js Web Application
 
 **I've added a demo user Ariana** on the login page, so you don't have to sign up to test the functionality.
 
+![website screenshot](https://user-images.githubusercontent.com/36589645/50891598-a3240080-1422-11e9-8865-9c3814db1b47.jpg)
+
 ## Installation
 
 Make sure you have these things installed
