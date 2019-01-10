@@ -5,7 +5,7 @@ A Node. js Web Application
 ## Demo
 > See this app in action at [http://abhagsain-camping.herokuapp.com/](http://abhagsain-camping.herokuapp.com/)
 
-**I've added a demo user Ariana** on the login page, so you don't have to sign up to test the functionality.
+**I've added a demo user Hitman** on the login page, so you don't have to sign up to test the functionality.
 
 ![website screenshot](https://user-images.githubusercontent.com/36589645/50891598-a3240080-1422-11e9-8865-9c3814db1b47.jpg)
 
