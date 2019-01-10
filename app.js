@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const usersRoute = require('./routers/users');
 
 dotenv.config();
 const passport = require('passport');
@@ -71,6 +72,7 @@ app.use(
 app.use(authRoutes);
 app.use(campgroundRoutes);
 app.use(commentRoutes);
+app.use(usersRoute);
 app.get('*', (req, res) => {
   res.render('notfound');
 });
