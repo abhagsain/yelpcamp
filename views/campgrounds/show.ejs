@@ -14,8 +14,6 @@
                 <h5 class="card-title">
                   <%=camp.name %>
                 </h5>
-
-
               </div>
               <p class="card-text mb-0">
                 <%=camp.description%>
@@ -32,7 +30,10 @@
                 py-2 rounded ">
                   <em>
                     Submitted by-
-                    <%=camp.createdBy.username%></span>
+                    <a href="/profile/<%=camp.createdBy.id%>">
+                      <%=camp.createdBy.username%>
+                    </a>
+                </span>
                 </em>
               </div>
 
@@ -45,7 +46,9 @@
           <li class="list-group-item w-md-50 my-2 bg-light">
             <% if(comment.text !== null){%>
             <h5>
-              <%=comment.author.username%>
+              <a href="/profile/<%=comment.author.id%>">
+                <%=comment.author.username%></a>
+
             </h5>
             <%=comment.text%>
             <%}%>
