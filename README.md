@@ -52,7 +52,10 @@ DATABASEURL = mongodb://localhost:27017/[your_database_name]
  
   * User can only modify campgrounds created by them.
 
+* User Profile
 
+  * Every registered user has profile where all his submitted campgrounds are shown.
+  
 * Basic Functionality
 
   * Add Name, Image and Description to the campground.
