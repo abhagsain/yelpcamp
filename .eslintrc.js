@@ -1,6 +1,7 @@
-{
-    "extends": "rallycoding",
+module.exports = {
+    // ...
     "parserOptions": {
         "ecmaVersion": 2017
-    }
+    },
+    // ...
 }

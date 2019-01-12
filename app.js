@@ -77,5 +77,5 @@ app.get('*', (req, res) => {
   res.render('notfound');
 });
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
-  console.log('Server started!');
+  console.log('Server started! at PORT', process.env.PORT);
 });
