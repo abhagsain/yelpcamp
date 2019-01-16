@@ -5,9 +5,18 @@
         <div class="col-8 m-auto text-center">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?" id="profile-picture">
-            </div>  
+            </div>
             <span class="d-block mt-2" id="profile-username">
                 <%=foundUser.username%>
+                <%if(user === false){%>
+                <form action="/profile/<%=foundUser._id%>" method="post">
+                    <button href="" class="btn btn-primary btn-sm">Follow</button>
+                </form>
+                <%} else if(user && !foundUser._id.equals(user._id)){%>
+                <form action="/profile/<%=foundUser._id%>" method="post">
+                    <button id="btn_follow" class="btn btn-primary btn-sm">Follow</button>
+                </form>
+                <%}%>
             </span>
         </div>
         <div class="col-2"></div>

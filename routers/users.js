@@ -25,4 +25,9 @@ router.get('/profile/:id', (req, res) => {
         }
     });
 });
+router.post('/profile/:id', (req, res) => {
+    console.log("​req.params.id", req.params.id);
+    req.method = 'get';
+    res.send('success');
+})
 module.exports = router;
